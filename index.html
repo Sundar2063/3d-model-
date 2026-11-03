@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Forma — Photo to 3D Studio</title>
+<meta name="description" content="Prepare four-view photo sets and inspect your 3D models in Forma Studio.">
+<link rel="stylesheet" href="style.css">
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.0.0/dist/model-viewer.min.js"></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<header><a class="brand" href="./"><span class="logo">◇</span> forma<span class="brand-sub">3D STUDIO</span></a><span class="badge">EARLY PREVIEW</span><a href="https://github.com/Sundar2063/3d-model-" target="_blank" rel="noopener">GitHub ↗</a></header>
+<main>
+<div class="intro"><div><p class="eyebrow">A NEW DIMENSION FOR YOUR IDEAS</p><h1>Every angle.<br><span>One new dimension.</span></h1><p class="lede">Bring your subject into focus. Prepare four photos, then explore a model in your own 3D workspace.</p></div><div class="notice"><span class="status-dot"></span><strong>Photo-to-3D setup pending</strong><p>Photo preparation and GLB viewing work now. AI generation needs a connected backend; uploaded photos are not converted in this preview.</p></div></div>
+<div class="workspace">
+<section class="panel inputs"><div class="section-head"><h2><span class="step">01</span> Capture your subject</h2><span id="count">0 / 4 views</span></div>
+<label class="field" for="project">Project name</label><input id="project" maxlength="80" value="Untitled creation" autocomplete="off">
+<label class="field" for="category">What are you creating?</label><select id="category"><option>Product / object</option><option>Person / full body</option><option>Animal</option><option>Furniture</option><option>Other</option></select>
+<div id="uploads" class="upload-grid"></div>
+<p class="hint">JPG, PNG or WebP · up to 15 MB each. Use the same subject, pose and lighting in all four views.</p>
+<details><summary>How to get better photos</summary><p>Keep the entire subject in frame against a plain background. Move around the subject at a consistent height and distance. Avoid blur, reflections, transparent objects and changing poses. Four views may miss hidden surfaces.</p></details>
+<div class="settings"><span>Texture target</span><strong>4K <small>planned</small></strong></div>
+<button class="primary" disabled>Generate 3D model · setup required</button><p class="hint">4K texture size does not guarantee an exact likeness or accurate geometry.</p>
+<button id="brief" class="secondary" disabled>Download photo brief</button>
+<p class="privacy">Your photos stay in this tab. Refreshing clears them.</p>
+</section>
+<section class="panel viewer-panel"><div class="section-head"><h2><span class="step">02</span> Model workspace</h2><span class="badge">GLB VIEWER</span></div>
+<div class="viewer-wrap"><model-viewer id="viewer" camera-controls shadow-intensity="1" exposure="1" alt="Interactive preview of your imported 3D model" hidden></model-viewer><div id="empty"><div class="orb">◇</div><h3>A little perspective changes everything.</h3><p>Open an existing GLB model to rotate, zoom<br>and inspect it here.</p><label class="primary import" for="model">＋ Open a GLB model</label></div><div class="axis" aria-hidden="true">Y ↑ &nbsp; X ↗ &nbsp; Z →</div></div>
+<div class="toolbar"><label class="secondary import" for="model">Import GLB</label><input id="model" type="file" accept=".glb" hidden><button id="rotate" class="secondary" disabled aria-pressed="false">Auto-rotate</button><button id="reset" class="secondary" disabled>Reset view</button><a id="download" class="secondary disabled" aria-disabled="true">Download GLB ↓</a></div>
+<p id="model-info" class="hint">Existing models only · maximum 50 MB · download preserves the original GLB</p>
+</section></div>
+<p id="message" role="status" aria-live="polite"></p>
+<footer><span>FORMA / MADE FOR EVERY ANGLE</span><span>People. Products. Creatures. Possibilities.</span></footer>
+</main></body></html>
